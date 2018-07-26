@@ -20,11 +20,11 @@ public class UserController {
     }
   @PostMapping(path = "")
     public User add(@RequestBody User user){
-      user.getGroups().stream().forEach(group -> {
-          List<User> users = group.getUsers();
-          users.add(user);
-          group.setUsers(users);
-      });
+//      user.getGroups().stream().forEach(group -> {
+//          List<User> users = group.getUsers();
+//          users.add(user);
+//          group.setUsers(users);
+//      });
         return  resposity.save(user);
 
   }
