@@ -1,6 +1,7 @@
 package com.oocl.company_db.entities;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.time.ZonedDateTime;
@@ -8,9 +9,10 @@ import java.time.ZonedDateTime;
 @Entity
 public class Company {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private  long id;
     private  String name;
+    @CreatedDate
     private ZonedDateTime createDate = ZonedDateTime.now();
 
     public Company(String name,long id) {
@@ -35,5 +37,13 @@ public class Company {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public ZonedDateTime getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(ZonedDateTime createDate) {
+        this.createDate = createDate;
     }
 }
